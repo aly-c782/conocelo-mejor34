@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>No es opinión. Es crueldad.</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #eaeaea;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+  max-width: 720px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+h1 {
+  color: #ff4d4d;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+input {
+  width: 260px;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #ffcc00;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.results {
+  margin-top: 40px;
+}
+
+a {
+  display: block;
+  margin: 10px 0;
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+small {
+  color: #777;
+}
+
+footer {
+  margin-top: 60px;
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<section>
+  <h1>No es opinión.<br>Es crueldad.</h1>
+
+  <p>
+    Este proyecto explora la <b>presencia pública</b> de un nombre de usuario en redes sociales.
+    Lo que aparece aquí es contenido visible para cualquiera.
+  </p>
+
+  <p>
+    Las plataformas lo permiten.
+  </p>
+
+  <input id="user" placeholder="Nombre de usuario">
+  <br>
+  <button onclick="buscar()">Explorar</button>
+
+  <div class="results" id="resultados"></div>
+
+  <footer>
+    Este sitio no recopila datos ni rastrea personas.
+    Solo redirige a búsquedas públicas disponibles en internet.
+  </footer>
+</section>
+
+<script>
+function buscar() {
+  const u = document.getElementById("user").value.trim();
+  const r = document.getElementById("resultados");
+
+  if (!u) {
+    r.innerHTML = "<small>Escribe un nombre de usuario.</small>";
+    return;
+  }
+
+  r.innerHTML = `
+    <a href="https://www.google.com/search?q=${u}" target="_blank">
+      🔎 Presencia general en Google
+    </a>
+
+    <a href="https://www.google.com/search?q=site:tiktok.com+${u}" target="_blank">
+      🎵 Actividad pública en TikTok
+    </a>
+
+    <a href="https://www.google.com/search?q=site:facebook.com+${u}" target="_blank">
+      📘 Actividad pública en Facebook
+    </a>
+
+    <a href="https://www.reddit.com/user/${u}/comments" target="_blank">
+      💬 Comentarios públicos en Reddit
+    </a>
+  `;
+}
+</script>
+
+</body>
+</html>
